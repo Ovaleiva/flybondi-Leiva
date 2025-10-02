@@ -1,49 +1,49 @@
-const path = require('path'); // para manejar las rutas de los archivos
-const HtmlWebpackPlugin = require('html-webpack-plugin'); // para generar el archivo html
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './index.js', // punto de entrada de nuestro proyecto
+  entry: './index.js', // tu archivo principal
   output: {
-    path: path.resolve(__dirname, 'dist'), // directorio de salida de nuestro proyecto
-    filename: 'main.js', // nombre del archivo de salida
-    publicPath: '/', // ruta de nuestro proyecto
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'main.js',
+    publicPath: '/',
     clean: true,
   },
   resolve: {
-    extensions: ['.js'], // extensiones de los archivos que vamos a usar
+    extensions: ['.js'],
   },
   module: {
     rules: [
       {
-        test: /\.js$/, // test para los archivos js
-        exclude: /node_modules/, // excluimos la carpeta node_modules
+        test: /\.js$/,
+        exclude: /node_modules/,
         use: {
-          loader: 'babel-loader', // loader para los archivos js
-          options: {
-            presets: ['@babel/preset-env'] // presets para los archivos js
-          }
-        }
+          loader: 'babel-loader',
+          options: { presets: ['@babel/preset-env'] },
+        },
       },
       {
-        test: /\.css$/, // test para los archivos css
-        use: ['style-loader', 'css-loader'] // loaders para los archivos css
-      }
-    ]
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      inject: true, // inject para los archivos html
-      template: './public/index.html', // template para los archivos html
-      filename: './index.html', // nombre del archivo de salida
+      inject: true,
+      template: './public/index.html',
+      filename: './index.html',
     }),
+    // Ya no necesitás copy-webpack-plugin para dataset.json
   ],
   devServer: {
-    static: {
-      directory: path.join(__dirname, 'dist'), // directorio de salida de nuestro proyecto
-    },
-    compress: true, // compresión de los archivos
-    port: 3000, // puerto de nuestro proyecto
-    open: true, // abrir el navegador
-    historyApiFallback: true, // fallback para las rutas
-  }
-}
+  static: {
+    directory: path.join(__dirname, 'public'), // ⚡ sirve public/
+  },
+  compress: true,
+  port: 3000,
+  open: true,
+  historyApiFallback: true,
+},
+};
+// Ahora dataset.json se sirve desde public/ sin necesidad de importarlo

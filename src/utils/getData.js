@@ -1,14 +1,16 @@
-const API = 'https://api.spacexdata.com/v4/launches';
-
-const getData = async (id) => {
-  const apiURL = id ? `${API}/${id}` : API;
-  
+// src/utils/getData.js
+const getData = async () => {
   try {
-    const response = await fetch(apiURL);
-    const data = await response.json();
+    const res = await fetch('/dataset.json');
+    if (!res.ok) {
+      throw new Error(`HTTP error! status: ${res.status}`);
+    }
+    const data = await res.json();
+    console.log(`✅ ${data.length} vuelos cargados`);
     return data;
   } catch (error) {
-    console.error('Fetch Error', error);
+    console.error('❌ Error cargando datos:', error);
+    return [];
   }
 };
 

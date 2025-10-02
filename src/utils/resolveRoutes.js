@@ -1,10 +1,8 @@
 const resolveRoutes = (route) => {
-  if (route === '/' || route === '') {
-    return '/';     // Home
+  if (route.length <= 3) { // "/", "1", "2"
+    return route === '/' ? '/' : '/:id';
   }
-
-  // si hay algo después del hash, asumimos que es un ID de lanzamiento
-  return '/:id';
+  return `/${route}`;
 };
 
 export default resolveRoutes;

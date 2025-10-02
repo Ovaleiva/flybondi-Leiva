@@ -31,6 +31,8 @@ const router = async () => {
 
   // Renderizamos el contenido dinámico
   content.innerHTML = await render();
+
+  
 };
 
 export default router;

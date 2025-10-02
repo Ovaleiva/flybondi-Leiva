@@ -1,14 +1,14 @@
 {
-  "name": "cientifico",
+  "name": "flybondi-spa",
   "version": "1.0.0",
-  "description": "SPA Vanilla",
+  "description": "SPA Flybondi",
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
     "start": "webpack serve --mode development --open",
     "dev": "webpack serve --mode development --open"
   },
-  "author": "ernesto ledesma",
+  "author": "tu nombre",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.22.0",
@@ -16,7 +16,9 @@
     "babel-loader": "^9.1.0",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^7.1.2",
-    "html-webpack-plugin": "^5.5.0",
+    "html-webpack-plugin": "^5.6.4",
+    "install": "^0.13.0",
+    "npm": "^11.6.1",
     "style-loader": "^4.0.0",
     "webpack": "^5.101.3",
     "webpack-cli": "^5.1.0",

@@ -1,21 +1,12 @@
-
-
 const Header = () => {
-    const view = `
-       <div class="Header-main">
-           <div class="Header-logo">
-               <h1>
-                    <a href="/">
-                        <span>Space X API</span>
-                    </a>
-               </h1>
-           </div>
-           <div class="Header-nav">
-               <a href="#/about">About</a>
-           </div>
-       </div>
-    `;
-    return view;
-}
+  const view = `
+    <header>
+      <a href="#/">
+        <img src="https://flybondi.com/assets/images/logo.svg" alt="Flybondi Logo" height="60">
+      </a>
+    </header>
+  `;
+  return view;
+};
 
 export default Header;
